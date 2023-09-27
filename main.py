@@ -1,10 +1,12 @@
 # project start
 """
-1. Користувач вводить рядок з клавіатури. Порахуйте кількість літер, цифр у рядку. Виведіть обидві кількості на екран. (використовувати цикл)
+1. Користувач вводить рядок з клавіатури. Порахуйте кількість літер, цифр у рядку. Виведіть обидві кількості на екран.
 
-2. Користувач вводить з клавіатури рядок та символ для пошуку. Порахуйте скільки разів у рядку зустрічається потрібний символ. Отримане число виведіть на екран.
+2. Користувач вводить з клавіатури рядок та символ для пошуку. Порахуйте скільки разів у рядку зустрічається потрібний
+символ. Отримане число виведіть на екран.
 
-3. Користувач вводить з клавіатури рядок, слово для пошуку, слово для заміни. Зробіть у рядку заміну одного слова на інше. Отриманий рядок на екрані.
+3. Користувач вводить з клавіатури рядок, слово для пошуку, слово для заміни. Зробіть у рядку заміну одного слова на
+інше. Отриманий рядок на екрані.
 
 4. Дано рядок. (зробити зрізи)
 
@@ -16,7 +18,8 @@
 
 - У четвертому рядку виведіть весь рядок, крім двох останніх символів.
 
-- У п'ятому рядку виведіть усі символи з парними індексами (вважаючи, що індексація починається з 0, тому символи виводяться з першого).
+- У п'ятому рядку виведіть усі символи з парними індексами (вважаючи, що індексація починається з 0, тому
+символи виводяться з першого).
 
 - У шостому рядку виведіть усі символи з непарними індексами, тобто, починаючи з другого символу рядка.
 
@@ -52,7 +55,7 @@ while task_n != 5:
 
         match task_n:
             case 1:
-                finish_t1 = "y"
+                finish_t1_l = "y"
                 while finish_t1_l == "y":
                     text_t1 = input("Enter please text here to count letters and number: ")
                     symb_c = len(text_t1)
@@ -77,7 +80,7 @@ while task_n != 5:
                         num = 0
                         for a in range(0, 10):
                             c = text_t1[i] != str(num)
-                            if c == False:
+                            if not c:
                                 n += 1
                             elif text_t1[i] == " ":
                                 s += 0.1
@@ -98,23 +101,29 @@ while task_n != 5:
                                 break
                             else:
                                 raise Exception("Please enter valid answer!")
-                                continue
                         except Exception as e:
                             print(f"Error: {e}")
             case 2:
-                finish_t2 = "y"
+                finish_t2_l = "y"
                 while finish_t2_l == "y":
                     text_t2 = input("Enter please text here to count quantity of needed symbols: ")
                     symb_t2 = input("Enter symbol, that you want to count in text: ")
-                    symb_c_t2 = 0
 
-                    # v1
-                    # for i in range(len(text_t2)):
-                    #     if symb_t2 == text_t2[i]:
-                    #         symb_c_t2 += 1
-                    # print(f"Quantity of \"{symb_t2}\" in text is {symb_c_t2}")
-                    # v2
-                    text_t2.count(symb_t2)
+                    try:
+                        if len(symb_t2) == 1:
+                            # v1
+                            symb_c_t2 = 0
+                            for i in range(len(text_t2)):
+                                if symb_t2 == text_t2[i]:
+                                    symb_c_t2 += 1
+                            print(f"Quantity of \"{symb_t2}\" in text is {symb_c_t2}")
+
+                            # v2
+                            # print(f"Quantity of \"{symb_t2}\" in text is {text_t2.count(symb_t2)}")
+                        else:
+                            raise Exception("Enter only one character, please!")
+                    except Exception as e:
+                        print(f"Error: {e}")
 
                     while finish_t2_l != "y" or finish_t2_l != "n":
                         finish_t2 = input("Do you want to continue?\n"
@@ -128,11 +137,10 @@ while task_n != 5:
                                 break
                             else:
                                 raise Exception("Please enter valid answer!")
-                                continue
                         except Exception as e:
                             print(f"Error: {e}")
             case 3:
-                finish_t3 = "y"
+                finish_t3_l = "y"
                 while finish_t3_l == "y":
                     text_t3 = input("Enter please text here to switch content: ")
                     find_t3 = input("Enter symbol or word(s), that you want to remove: ")
@@ -154,11 +162,10 @@ while task_n != 5:
                                 break
                             else:
                                 raise Exception("Please enter valid answer!")
-                                continue
                         except Exception as e:
                             print(f"Error: {e}")
             case 4:
-                finish_t4 = "y"
+                finish_t4_l = "y"
                 while finish_t4_l == "y":
                     text_t4 = input("Enter please text here to operate with it: ")
 
@@ -184,7 +191,7 @@ while task_n != 5:
                                 break
                             else:
                                 raise Exception("Please enter valid answer!")
-                                continue
+
                         except Exception as e:
                             print(f"Error: {e}")
             case 5:
