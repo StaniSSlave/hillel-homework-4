@@ -129,6 +129,15 @@ while task_n !=5:
                 while finish_t4 == "y":
                     text_t4 = input("Enter please text here to operate with it: ")
 
+                    print(f"1. Third character: {text_t4[2]}")
+                    print(f"2. Penultimate character: {text_t4[len(text_t4)-2]}")
+                    print(f"3. First 5 characters: {text_t4[0:4]}")
+                    print(f"4. Almost all characters(without last two): {text_t4[0:len(text_t4)-3]}")
+                    print(f"5. All characters with paired indices: {text_t4[::2]}")
+                    print(f"6. All characters with odd indices: {text_t4[1::2]}")
+                    print(f"7. Reversed string: {text_t4[::-1]}")
+                    print(f"8. Almost all characters(without last two): {text_t4[len(text_t4)-1::-2]}")
+                    print(f"9. String Length: {len(text_t4)}")
 
                     finish_t4 = input("Do you want to continue?\n"
                                       "\ty - yes, n - no\n"
