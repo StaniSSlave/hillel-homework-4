@@ -164,11 +164,13 @@ while task_n != 5:
                     last_ch = 0
                     first_ch = 0
                     word_search = -1
-                    for i in range(len(text_t3)-1):
-                        if word_search == len(find_t3):
-                            print(text_t3[:first_ch] + new_t3 + text_t3[last_ch + 1:])
-                            break
+                    if len(text_t3) == 1:
+                        if find_t3 == text_t3:
+                            print(new_t3)
                         else:
+                            print("Needed word or symbol was not found. Try again!")
+                    else:
+                        for i in range(len(text_t3)):
                             a = 0
                             word_search = 0
                             for n in range(len(find_t3)):
@@ -179,7 +181,12 @@ while task_n != 5:
                                     first_ch = last_ch-len(find_t3)+1
                                     if word_search == len(find_t3):
                                         break
-                    print("Needed word or symbol was not found. Try again!")
+                            if word_search == len(find_t3):
+                                print(text_t3[:first_ch] + new_t3 + text_t3[last_ch + 1:])
+                                break
+                            else:
+                                print("Needed word or symbol was not found. Try again!")
+                                break
 
                     #v2
                     # text_ch_t3 = text_t3.replace(find_t3, new_t3)
@@ -238,3 +245,5 @@ while task_n != 5:
         print("\tError: Please enter only integers!")
     except Exception as e:
         print(f"\tError: {e}")
+
+# Upload to GIT
